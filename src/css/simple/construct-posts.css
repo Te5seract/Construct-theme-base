@@ -1,0 +1,389 @@
+/* ////////////////////////////////////// */
+/* post item */
+
+._construct-post-item {
+    position: relative;
+    font-size: 14px;
+    width: var(--post-width);
+    border-radius: 2px;
+    color: var(--post-text-colour);
+    background-color: var(--post-background-colour);
+}
+
+/* =============================== */
+/* post links */
+
+._construct-post-item a:not(._construct-note-count) {
+    color: var(--post-link-colour);
+    font-weight: 500;
+    text-decoration: none;
+    transition: .2s;
+}
+
+._construct-post-item a:not(._construct-note-count):is(:hover, :active, :focus) {
+    color: var(--post-link-hover-colour);
+}
+
+.read_more_container {
+    text-align: center;
+}
+
+/* end post links */
+/* =============================== */
+
+/* =============================== */
+/* post media */
+
+.embed_iframe,
+.spotify_audio_player {
+    width: var(--post-width);
+    height: 100%;
+}
+
+._construct-post-item main img,
+._construct-post-item main video {
+    width: 100%;
+    height: auto;
+}
+
+._construct-post-item blockquote {
+    margin-bottom: -4px;
+}
+
+/* end post media */
+/* =============================== */
+
+/* end post item */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post header */
+
+._construct-post-item-header {
+    width: 100%;
+    height: 40px;
+    display: flow-root;
+    line-height: 40px;
+}
+
+._construct-post-reblogged-from-avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 26px;
+    width: 26px;
+    margin-top: 7px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+._construct-post-reblogged-from {
+    display: flex;
+}
+
+._construct-pinned-post {
+    fill: var(--post-pinned-icon-colour);
+    pointer-events: none;
+    position: relative;
+    top: 13px;
+    width: 11px;
+    pointer-events: none;
+}
+
+/* end post header */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post body */
+
+._construct-post-body p {
+    padding: 10px;
+    margin: 0;
+}
+
+._construct-post-body blockquote,
+._construct-post-body p {
+    word-wrap: break-all;
+}
+
+._construct-post-body blockquote,
+._construct-post-caption blockquote {
+    padding: 0;
+    margin: 0;
+    padding: 0px 10px 1px 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-left: 3px solid var(--post-reply-thread-colour);
+}
+
+/* ================================ */
+/* link post */
+
+._construct-link-thumbnail {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+._construct-thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+._construct-thumbnail::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    width: 100%;
+    height: 100%;
+}
+
+._construct-link-title-excerpt {
+    position: absolute;
+    bottom: 0;
+}
+
+/* end link post */
+/* ================================ */
+
+/* ================================ */
+/* ask post */
+
+._construct-post-ask-container {
+    display: flex;
+}
+
+._construct-post-ask-avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 2px;
+    position: relative;
+}
+
+._construct-post-ask-text p {
+    padding: 0;
+    margin: 0;
+}
+
+._construct-post-ask-text-content {
+    padding: 10px;
+    display: block;
+}
+
+._construct-post-ask-text {
+    background-color: var(--post-ask-background-colour);
+    border-radius: 2px;
+    margin: 10px;
+    position: relative;
+    width: 100%;
+}
+
+._construct-post-ask-question {
+    margin-left: 6px;
+}
+
+._construct-post-ask-answer {
+    margin-right: 6px;
+}
+
+._construct-post-ask-question::before {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    border-right: 8px solid var(--post-ask-background-colour);
+    left: -16px;
+    margin-left: 0;
+    top: 7px;
+}
+
+._construct-post-ask-answer::before {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    border-left: 8px solid var(--post-ask-background-colour);
+    right: -16px;
+    margin-right: 0;
+    top: 7px;
+}
+
+/* end ask post */
+/* ================================ */
+
+/* end post body */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post tags */
+
+._construct-post-tag {
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 13px;
+}
+
+/* end post tags */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post caption */
+
+._construct-post-caption p {
+    padding: 10px;
+    margin: 0;
+}
+
+/* end post caption */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post footer */
+
+._construct-post-footer {
+    height: 40px;
+    width: 100%;
+    display: flow-root;
+    line-height: 40px;
+    border-top: 1px solid var(--post-accent-colour);
+}
+
+._construct-post-controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+._construct-post-controls li {
+    display: inline-block;
+    padding: 0 5px;
+    position: relative;
+}
+
+._construct-post-controls._construct-right li:last-of-type,
+._construct-post-controls._construct-left li:first-of-type {
+    padding: 0;
+}
+
+._construct-post-controls ._construct-tumblr-control {
+    top: 6px;
+}
+
+/* =============================== */
+/* note counter */
+
+._construct-note-count {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* end note counter */
+/* =============================== */
+
+/* =============================== */
+/* reblog button */
+
+.reblog_button svg {
+    fill: var(--post-reblog-colour);
+}
+
+.reblog_button {
+    position: relative;
+    top: 1px;
+}
+
+/* end reblog button */
+/* =============================== */
+
+/* =============================== */
+/* like button */
+
+.like_button {
+    opacity: 0;
+}
+
+._construct-like-facade {
+    fill: var(--post-like-colour);
+    z-index: 2;
+}
+
+/* like button liked */
+.like_button.liked ~ ._construct-like-facade {
+    fill: var(--post-liked-colour);
+}
+
+/* animation like */
+.like_button.liked ~ ._construct-like-facade-animation {
+    animation: .7s linear post-liked;
+}
+
+.like_button.liked ~ ._construct-like-facade-animation {
+    fill: var(--post-liked-colour);
+    z-index: 1;
+}
+
+._construct-like-facade-animation,
+._construct-like-facade {
+    height: 20px;
+    /* left: 10px; */
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    pointer-events: none;
+}
+
+._construct-like-facade-animation {
+    opacity: 0;
+}
+
+@keyframes post-liked {
+    0% {}
+    20% {
+        top: -10px;
+        opacity: .8;
+    }
+    40% {
+        top: -20px;
+        opacity: .6;
+    }
+    60% {
+        top: -30px;
+        opacity: .4;
+    }
+    80% {
+        top: -40px;
+        opacity: .2;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+/* end like button */
+/* =============================== */
+
+/* end post footer */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* ask / submit pages */
+
+._construct-ask-submit-page {
+    background-color: transparent;
+}
+
+._construct-ask-submit-page ._construct-post-item-header,
+._construct-ask-submit-page ._construct-post-footer,
+._construct-ask-submit-page ._construct-post-caption {
+    display: none;
+}
+
+/* end ask / submit pages */
+/* ////////////////////////////////////// */

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{Title}</title>
+
+    
+    <!-- construct post css base -->
+    <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/ovikceipnmagzxj/complex.css">
+    
+    <!-- masonry -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    
+    <!-- infinite scroll -->
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+    <!-- construct js -->
+    <script src="https://dl.dropbox.com/s/ynhr3w2xv9snwmy/construct.min.js"></script>
+
+    {block:Hidden}
+    <!-- construct options -->
+
+        <!-- ////////////////////////////////////// -->
+        <!-- conditions -->
+
+        <meta name="if:Display Post Header" content="1">
+        <meta name="if:Display Post Captions" content="1">
+        <meta name="if:Display Post Tags" content="1">
+        <meta name="if:Display Post Source Avatar" content="1">
+        <meta name="if:Display Post Header Border" content="0">
+        <meta name="if:Display Post Footer Border" content="1">
+
+        <!-- end conditions -->
+        <!-- ////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////// -->
+        <!-- colour -->
+
+        <meta name="color:Post Background" content="#f2f2f2">
+        <meta name="color:Post Pinned Icon" content="#ff540d">
+        <meta name="color:Post Ask Background" content="#ddd">
+        <meta name="color:Post Date" content="#bdbdbd">
+        <meta name="color:Post Reblogged From Icon" content="#bdbdbd">
+        <meta name="color:Post Text" content="#7a7a7a">
+        <meta name="color:Post Link" content="#3fc1ff">
+        <meta name="color:Post Tags" content="#ccc">
+        <meta name="color:Post Tags Hover" content="#bebebe">
+        <meta name="color:Post Link Hover" content="#20b9ff">
+        <meta name="color:Post Accent" content="#e7e7e7">
+        <meta name="color:Post Reblog" content="#ccc">
+        <meta name="color:Post Like" content="#ccc">
+        <meta name="color:Post Liked" content="#ff2f63">
+        <meta name="color:Post Notes" content="#ccc">
+        <meta name="color:Post Type Link" content="#fff">
+        <meta name="color:Post Reply Thread" content="#e0e0e0">
+        <meta name="color:Post Notes Comment Background" content="#fff">
+
+        <!-- end colour -->
+        <!-- ////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////// -->
+        <!-- text -->
+        <!-- end text -->
+        <!-- ////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////// -->
+        <!-- selection -->
+
+        <!-- header -->
+        <meta name="select:Post Header Layout" title="Header One" content="_construct-header-layout-one">
+        <meta name="select:Post Header Layout" title="Header Two" content="_construct-header-layout-two">
+
+        <!-- footer -->
+        <meta name="select:Post Footer Layout" title="Footer One" content="_construct-footer-layout-one">
+        <meta name="select:Post Footer Layout" title="Footer Two" content="_construct-footer-layout-two">
+        <meta name="select:Post Footer Layout" title="Footer Three" content="_construct-footer-layout-three">
+        <meta name="select:Post Footer Layout" title="Footer Four" content="_construct-footer-layout-four">
+        <meta name="select:Post Footer Layout" title="Footer Five" content="_construct-footer-layout-five">
+        <meta name="select:Post Footer Layout" title="Footer Six" content="_construct-footer-layout-six">
+
+        <!-- like effects -->
+        <meta name="select:Post Like Animation" title="Fly Up" content="_construct-like-fly-up">
+        <meta name="select:Post Like Animation" title="Float Up" content="_construct-like-float-up">
+
+        <!-- end selection -->
+        <!-- ////////////////////////////////////// -->
+
+    <!-- end construct options -->
+    {/block:Hidden}
+
+    <style>
+        body {
+            --post-width: 400px;
+            --post-background-colour: {color:Post Background};
+            --post-pinned-icon-colour: {color:Post Pinned Icon};
+            --post-date-colour: {color:Post Date};
+            --post-reblogged-from-colour: {color:Post Reblogged From Icon};
+            --post-ask-background-colour: {color:Post Ask Background};
+            --post-text-colour: {color:Post Text};
+            --post-tags-colour: {color:Post Tags};
+            --post-tags-hover-colour: {color:Post Tags Hover};
+            --post-link-colour: {color:Post Link};
+            --post-link-hover-colour: {color:Post Link Hover};
+            --post-accent-colour: {color:Post Accent};
+            --post-reblog-colour: {color:Post Reblog};
+            --post-like-colour: {color:Post Like};
+            --post-liked-colour: {color:Post Liked};
+            --post-notes-colour: {color:Post Notes};
+            --post-type-link-colour: {color:Post Type Link};
+            --post-reply-thread-colour: {color:Post Reply Thread};
+            --post-notes-comment-background-colour: {color:Post Notes Comment Background};
+        }
+    </style>
+</head>
+<body>
+
+    <section class="_construct-posts-wrapper{block:PermalinkPage} _construct-permalink-wrapper{/block:PermalinkPage}">
+        {block:Posts}
+
+            <article class="
+            _construct-post-item
+            {block:AskPage} _construct-ask-submit-page{/block:AskPage}
+            {block:SubmitPage} _construct-ask-submit-page{/block:SubmitPage}
+            {block:PermalinkPage} _construct-post-permalink-item{/block:PermalinkPage}
+            " post-id="{PostID}">
+                {block:IfDisplayPostHeader}
+                    <!-- post-header -->
+                    <header class="_construct-post-item-header {select:Post Header Layout}
+                    {block:IfDisplayPostHeaderBorder} _construct-post-header-border{/block:IfDisplayPostHeaderBorder}
+                    ">
+                        <!-- date -->
+                        <div class="_construct-post-date">
+                            {block:Date}
+                                {DayOfMonth} {ShortMonth} {Year}
+                            {/block:Date}
+                        </div>
+                        <!-- date end -->
+
+                        {block:IfDisplayPostSourceAvatar}
+                        <!-- reblogged from -->
+                            <div class="_construct-post-avatar">
+                                {block:RebloggedFrom}
+                                    <a href="{ReblogParentURL}" class="_construct-post-reblogged-from">
+                                        {block:PinnedPostLabel}
+                                            <svg class="_construct-pinned-post" viewBox="18 13 12 21" width="14" height="14" fill="#00cf35"><path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path></svg>
+                                        {/block:PinnedPostLabel}
+
+                                        <svg class="_construct-reblog-item _construct-reblog-origin-icon" viewBox="0 0 17 18.1" width="19" height="19" fill="#000"><path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg>
+
+                                        <div class="_construct-post-reblogged-from-avatar" style="background-image: url('{ReblogParentPortraitURL-64}');"></div>
+                                    </a>
+                                {/block:RebloggedFrom}
+
+                                {block:NotReblog}
+                                    <a href="{ReblogRootURL}" class="_construct-post-reblogged-from">
+                                        {block:PinnedPostLabel}
+                                            <svg class="_construct-pinned-post" viewBox="18 13 12 21" width="14" height="14" fill="#00cf35"><path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path></svg>
+                                        {/block:PinnedPostLabel}
+
+                                        <svg class="_construct-origin-icon _construct-reblog-origin-icon" viewBox="0 0 15 18.9" width="15" height="21"><path d="M7.5 8.8c2.6 0 4.7-2 4.7-4.4S10.1 0 7.5 0 2.8 2 2.8 4.4C2.9 6.8 5 8.8 7.5 8.8zm0 1.5c-4.2 0-7.5 3.2-7.5 7.4 0 .6.5 1.2 1.2 1.2h12.6c.7 0 1.2-.5 1.2-1.2 0-4.1-3.3-7.4-7.5-7.4z"></path></svg>
+
+                                        <div class="_construct-post-reblogged-from-avatar" style="background-image: url('{PortraitURL-64}');"></div>
+                                    </a>
+                                {/block:NotReblog}
+                            </div>
+                        <!-- end reblogged from -->    
+                        {/block:IfDisplayPostSourceAvatar}
+                        
+                    </header>
+                    <!-- end post header -->
+                {/block:IfDisplayPostHeader}
+
+                <!-- post body -->
+                <main class="_construct-post-body">
+
+                    <!-- text post -->
+                    {block:Text}
+                        {block:Title}
+                            <p class="_construct-post-main-title">{Title}</p>
+                        {/block:Title}
+
+                        {Body}
+                    {/block:Text}
+                    <!-- end text post -->
+
+                    <!-- photo post -->
+                    {block:Photo}
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-400}" alt="{PhotoAlt}">
+                        {LinkCloseTag}
+                    {/block:Photo}
+                    <!-- end photo post -->
+
+                    <!-- panorama post -->
+                    {block:Panorama}
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">
+                        {LinkCloseTag}
+                    {/block:Panorama}
+                    <!-- end panorama post -->
+
+                    <!-- photoset post -->
+                    {block:Photoset}
+                        {Photoset}
+                    {/block:Photoset}
+                    <!-- end photoset post -->
+
+                    <!-- quote post -->
+                    {block:Quote}
+                        <p class="_construct-text-serif-quote">{Quote}</p>
+
+                        {block:Source}
+                            <p class="_construct-text-italic">- {Source}</p>
+                        {/block:Source}
+                    {/block:Quote}
+                    <!-- end quote post -->
+
+                    <!-- link post -->
+                    {block:Link}
+                        <a href="{URL}" class="_construct-post-link" {Target}>
+                            <div class="_construct-link-thumbnail">
+                                {block:Thumbnail}
+                                    <div class="_construct-thumbnail" style="background-image: url('{Thumbnail}');"></div>
+                                {/block:Thumbnail}
+
+                                <div class="_construct-link-title-excerpt">
+                                    <p class="_construct-post-main-title">{Name}</p>
+
+                                    {block:Excerpt}
+                                        <p>{Excerpt}</p>
+                                    {/block:Excerpt}
+                                </div>
+                            </div>
+                        </a>
+
+                        {block:Description}
+                            {Description}
+                        {/block:Description}
+                    {/block:Link}
+                    <!-- end link post -->
+
+                    <!-- chat post -->
+                    {block:Chat}
+                        {block:Title}    
+                            <p class="_construct-post-main-title">{Title}</p>
+                        {/block:Title}
+
+                        {block:Lines} 
+                            <p>
+                                {block:Label} 
+                                    <span class="_construct-text-bold">{Label}</span>
+                                {/block:Label}
+
+                                {Line}
+                            </p>
+                        {/block:Lines}
+                    {/block:Chat}
+                    <!-- end chat post -->
+
+                    <!-- audio post -->
+                    {block:Audio}
+                        {block:AlbumArt}
+                            <img src="{AlbumArtURL}">
+                        {/block:AlbumArt}
+
+                        {block:AudioEmbed}
+                            {AudioEmbed}
+                        {/block:AudioEmbed}
+
+                        {block:AudioPlayer}
+                            {AudioPlayer}
+                        {/block:AudioPlayer}
+
+                        {block:PlayCount} 
+                            {FormattedPlayCount}
+                        {/block:PlayCount}
+
+                        {block:Artist}
+                            <p><span class="_construct-text-bold">Artist: </span> {Artist}</p>
+                        {/block:Artist}
+
+                        {block:Album}
+                            <p><span class="_construct-text-bold">Album: </span>{Album}</p>
+                        {/block:Album}
+
+                        {block:TrackName}
+                            <p><span class="_construct-text-bold">Track: </span>{TrackName}</p>
+                        {/block:TrackName}
+                    {/block:Audio}
+                    <!-- end audio post -->
+
+                    <!-- video post -->
+                    {block:Video}
+                        {Video-400}
+                        <p class="_construct-text-bold">{PlayCountWithLabel}</p>
+                    {/block:Video}
+                    <!-- end video post -->
+
+                    <!-- answer post -->
+                    {block:Answer}
+                        <section class="_construct-post-ask-container">
+                            <div class="_construct-post-ask-avatar-name-container">
+                                <div class="_construct-post-ask-avatar" style="background-image: url('{AskerPortraitURL-64}');"></div>
+                            </div>
+
+                            <div class="_construct-post-ask-text _construct-post-ask-question">
+                                <span class="_construct-post-ask-text-content">{Asker} asked:</span>
+
+                                <span class="_construct-post-ask-text-content">{Question}</span>
+                            </div>
+                        </section>
+
+                        {block:Answerer}
+                        <section class="_construct-post-ask-container">
+                                <div class="_construct-post-ask-text _construct-post-ask-answer">
+                                    <span class="_construct-post-ask-text-content">{Answerer} answered:</span>
+                                    <span class="_construct-post-ask-text-content">{Answer}</span>
+                                </div>
+
+                                <div class="_construct-post-ask-avatar-name-container">
+                                    <div class="_construct-post-ask-avatar" style="background-image: url('{AnswererPortraitURL-64}');"></div>
+                                </div>
+                            </section>
+                        {/block:Answerer}
+
+                        {Replies}
+                    {/block:Answer}
+                    <!-- end answer post -->
+
+                </main>
+                <!-- end post body -->
+
+                <!-- post caption -->
+                <section class="_construct-post-caption">
+                    {block:IfDisplayPostCaptions}
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:IfDisplayPostCaptions}
+
+                    {block:PermalinkPage}
+                        <div class="_construct-post-permalink-date">
+                            <p>
+                                {block:Date}
+                                    {DayOfMonth} {ShortMonth} {Year}
+                                {/block:Date}
+                            </p>
+                        </div>
+                    {/block:PermalinkPage}
+                </section>
+                <!-- end post caption -->
+
+                {block:IfDisplayPostTags}
+                    {block:HasTags}
+                        <!-- post tags -->
+                        <section class="_construct-post-tags _construct-buffer">
+                            {block:Tags}
+                                <a class="_construct-post-tag" href="{TagURL}">#{Tag}</a>
+                            {/block:Tags}
+                        </section>
+                        <!-- end post tags -->
+                    {/block:HasTags}
+                {/block:IfDisplayPostTags}
+
+                <!-- post footer -->
+                <footer class="_construct-post-footer {select:Post Footer Layout}
+                {block:IfDisplayPostFooterBorder} _construct-post-footer-border{/block:IfDisplayPostFooterBorder}">
+                    <div class="_construct-post-controls _construct-post-notes-section">
+                        <ul>
+                            {block:NoteCount}
+                                <li>
+                                    <a class="_construct-note-count" href="{Permalink}">{NoteCountWithLabel}</a>
+                                </li>
+                            {/block:NoteCount}
+                        </ul>
+                    </div>
+
+                    <div class="_construct-post-controls _construct-post-tumblr-controls-section">
+                        <ul>
+                            <!-- reblog button -->
+                            <li class="_construct-tumblr-control">
+                                <a href='{ReblogURL}' class='reblog_button' style='display: block;width:20px;height:20px;'>
+                                    <svg viewBox="0 0 17 18.1" width="19" height="19" fill="#000"><path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg>
+                                </a>
+                            </li>
+
+                            <!-- like button -->
+                            <li class="_construct-tumblr-control">
+                                {LikeButton}
+
+                                <!-- like button facade -->
+                                <svg class="_construct-like-facade" width="100%" height="100%" viewBox="0 0 20 18" fill="rgba(var(--black), 0.65)"><path d="M14.658 0c-1.625 0-3.21.767-4.463 2.156-.06.064-.127.138-.197.225-.074-.085-.137-.159-.196-.225C8.547.766 6.966 0 5.35 0 4.215 0 3.114.387 2.162 1.117c-2.773 2.13-2.611 5.89-1.017 8.5 2.158 3.535 6.556 7.18 7.416 7.875A2.3 2.3 0 0 0 9.998 18c.519 0 1.028-.18 1.436-.508.859-.695 5.257-4.34 7.416-7.875 1.595-2.616 1.765-6.376-1-8.5C16.895.387 15.792 0 14.657 0h.001zm0 2.124c.645 0 1.298.208 1.916.683 1.903 1.461 1.457 4.099.484 5.695-1.973 3.23-6.16 6.7-6.94 7.331a.191.191 0 0 1-.241 0c-.779-.631-4.966-4.101-6.94-7.332-.972-1.595-1.4-4.233.5-5.694.619-.475 1.27-.683 1.911-.683 1.064 0 2.095.574 2.898 1.461.495.549 1.658 2.082 1.753 2.203.095-.12 1.259-1.654 1.752-2.203.8-.887 1.842-1.461 2.908-1.461h-.001z"></path></svg>
+
+                                <!-- liked animation -->
+                                <svg class="_construct-like-facade-animation {select:Post Like Animation}" width="100%" height="100%" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><path d="M14.0425097,0.000920262799 C16.1435097,-0.0400797372 18.8835097,1.28192026 18.9635097,5.36992026 C19.0525097,9.95492026 15.1985097,13.3079203 9.48350967,16.2089203 C3.76650967,13.3079203 -0.0874903349,9.95492026 0.00150966509,5.36992026 C0.0815096651,1.28192026 2.82150967,-0.0400797372 4.92250967,0.000920262799 C7.02450967,0.0419202628 8.87050967,2.26592026 9.46950967,2.92792026 C10.0945097,2.26592026 11.9405097,0.0419202628 14.0425097,0.000920262799 Z"></path></svg>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <!-- end post footer -->
+
+                {block:PermalinkPage}
+                    <!-- post notes -->
+                    {block:PostNotes}
+                        <section class="_construct-post-notes">
+                            {PostNotes}
+                        </section>
+                    {/block:PostNotes}    
+                    <!-- end post notes -->
+                {/block:PermalinkPage}
+            </article>
+        {/block:Posts}
+    </section>
+
+    <!-- pagination -->
+    {block:Pagination}
+        {block:PreviousPage}
+            <a href="{PreviousPage}">Previous</a>
+        {/block:PreviousPage}
+
+        {block:JumpPagination length="5"}
+            {block:CurrentPage}
+                <a>{PageNumber}</a>
+            {/block:CurrentPage}
+            
+            {block:JumpPage}
+                <a href="{URL}">{PageNumber}</a>
+            {/block:JumpPage}    
+        {/block:JumpPagination}
+
+        {block:NextPage}
+            <a href="{NextPage}" class="_construct-pagination-next">Next</a>
+        {/block:NextPage}
+    {/block:Pagination}
+    <!-- end pagination -->
+
+    <script>
+        /* theme scripts */
+    </script>
+</body>
+</html>

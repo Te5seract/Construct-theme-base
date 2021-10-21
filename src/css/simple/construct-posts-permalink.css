@@ -1,0 +1,97 @@
+/* ////////////////////////////////////// */
+/* permalink post wrapper */
+
+._construct-permalink-wrapper {
+    max-width: 1000px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    position: relative;
+    display: flow-root;
+}
+
+._construct-permalink-wrapper iframe,
+._construct-permalink-wrapper video,
+.tumblr_video_container {
+    width: 100% !important;
+}
+
+/* end permalink post wrapper */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* permalink page post */
+
+._construct-post-permalink-item {
+    width: 100%;
+    margin: 0 auto;
+}
+
+._construct-post-permalink-item ._construct-post-item-header,
+._construct-post-permalink-item ._construct-post-footer {
+    display: none;
+}
+
+._construct-post-permalink-date {
+    border-top: 1px solid var(--post-accent-colour);
+}
+
+/* end permalink page post */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post notes */
+
+._construct-post-notes {
+    overflow: auto;
+    color: var(--post-text-colour);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 14px;
+    overflow: auto;
+    background-color: var(--post-background-colour);
+    border-top: 1px solid var(--post-accent-colour);
+}
+
+._construct-post-notes ol {
+    padding: 0;
+    list-style: none;
+    line-height: 35px;
+    margin: 0;
+}
+
+._construct-post-notes .avatar_frame {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+}
+
+._construct-post-notes a:not(._construct-note-count) {
+    color: var(--post-link-colour);
+    text-decoration: none;
+    transition: .2s;
+}
+
+._construct-post-notes a:not(._construct-note-count):is(:hover, :active, :focus) {
+    color: var(--post-link-hover-colour);
+}
+
+/* replies */
+._construct-post-notes .with_commentary,
+._construct-post-notes .reply {
+    background-color: var(--post-notes-comment-background-colour);
+    padding: 10px;
+    border-radius: 2px;
+    display: block;
+}
+
+._construct-post-notes .answer_content {
+    display: block;
+}
+
+.with_commentary blockquote {
+    margin-left: 0;
+}
+
+/* end post notes */
+/* ////////////////////////////////////// */

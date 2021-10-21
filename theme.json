@@ -1,0 +1,7 @@
+{
+    "name" : "te5seract-themes-dev",
+    "html" : "complex.html",
+    "files" : {
+        "/* theme scripts */" : "theme-scripts.js"
+    }
+}

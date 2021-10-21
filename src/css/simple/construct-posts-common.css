@@ -1,0 +1,65 @@
+/* quote font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ////////////////////////////////////// */
+/* post text */
+._construct-post-main-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    margin: 0;
+}
+
+/* decorators */
+._construct-text-italic {
+    font-style: italic;
+}
+
+._construct-text-serif-quote {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+._construct-text-bold {
+    font-weight: 700;
+}
+
+/* end post text */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* positions */
+
+._construct-left {
+    float: left;
+}
+
+._construct-right {
+    float: right;
+}
+
+/* end positions */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* buffers */
+
+._construct-buffer-left {
+    padding-left: 10px;
+}
+
+._construct-buffer-right {
+    padding-right: 10px;
+}
+
+._construct-sides-buffer {
+    padding: 0 10px;
+}
+
+._construct-buffer {
+    padding: 10px;
+}
+
+/* end buffers */
+/* ////////////////////////////////////// */

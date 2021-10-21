@@ -1,0 +1,616 @@
+/* ////////////////////////////////////// */
+/* post item */
+
+._construct-post-item {
+    position: relative;
+    font-size: 14px;
+    width: var(--post-width);
+    border-radius: 2px;
+    color: var(--post-text-colour);
+    background-color: var(--post-background-colour);
+}
+
+/* =============================== */
+/* post links */
+
+._construct-post-item a:not(._construct-note-count):not(._construct-post-tag) {
+    color: var(--post-link-colour);
+    font-weight: 500;
+    text-decoration: none;
+    transition: .2s;
+}
+
+._construct-post-item a:not(._construct-note-count):not(._construct-post-tag):is(:hover, :active, :focus) {
+    color: var(--post-link-hover-colour);
+}
+
+.read_more_container {
+    text-align: center;
+}
+
+._construct-post-link {
+    color: var(--post-type-link-colour) !important;
+}
+
+/* end post links */
+/* =============================== */
+
+/* =============================== */
+/* post media */
+
+.embed_iframe,
+.spotify_audio_player {
+    width: var(--post-width);
+    height: 100%;
+}
+
+._construct-post-item main img,
+._construct-post-item main video {
+    width: 100%;
+    height: auto;
+}
+
+._construct-post-item blockquote,
+._construct-post-caption blockquote {
+    margin-bottom: -4px;
+}
+
+/* end post media */
+/* =============================== */
+
+/* end post item */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post header */
+
+._construct-post-item-header {
+    width: 100%;
+    height: 40px;
+    display: flow-root;
+    line-height: 40px;
+}
+
+._construct-post-reblogged-from-avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 26px;
+    width: 26px;
+    margin-top: 7px;
+    border-radius: 2px;
+}
+
+._construct-post-header-border {
+    border-bottom: 1px solid var(--post-accent-colour);
+}
+
+._construct-post-reblogged-from {
+    display: flex;
+}
+
+._construct-reblog-item {
+    fill: var(--post-reblogged-from-colour);
+    pointer-events: none;
+    position: relative;
+    right: 10px;
+    width: 13px;
+    top: 11px;
+}
+
+._construct-origin-icon {
+    fill: var(--post-reblogged-from-colour);
+    pointer-events: none;
+    position: relative;
+    right: 10px;
+    top: 10px;
+    width: 11px;
+}
+
+._construct-pinned-post {
+    fill: var(--post-pinned-icon-colour);
+    padding-right: 17px;
+    pointer-events: none;
+    position: relative;
+    top: 13px;
+    width: 11px;
+    pointer-events: none;
+}
+
+._construct-post-date {
+    color: var(--post-date-colour);
+}
+
+/* =============================== */
+/* post header option one */
+
+._construct-header-layout-one ._construct-post-date {
+    float: left;
+    padding-left: 10px;
+}
+
+._construct-header-layout-one ._construct-post-avatar {
+    float: right;
+    padding-right: 10px;
+}
+
+/* end post header option one */
+/* =============================== */
+
+/* =============================== */
+/* post header option two */
+
+._construct-header-layout-two ._construct-post-date {
+    float: right;
+    padding-right: 10px;
+}
+
+._construct-header-layout-two ._construct-post-avatar {
+    float: left;
+    padding-left: 10px;
+}
+
+._construct-header-layout-two ._construct-post-reblogged-from-avatar {
+    order: 1;
+}
+
+._construct-header-layout-two ._construct-reblog-origin-icon {
+    order: 2;
+    left: 10px;
+}
+
+._construct-header-layout-two ._construct-pinned-post {
+    padding-right: 0;
+    order: 3;
+    padding-left: 18px;
+}
+
+/* end post header option two */
+/* =============================== */
+
+/* end post header */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post body */
+
+._construct-post-body p {
+    padding: 10px;
+    margin: 0;
+}
+
+._construct-post-body blockquote,
+._construct-post-body p {
+    word-wrap: break-all;
+}
+
+._construct-post-body blockquote,
+._construct-post-caption blockquote {
+    padding: 0;
+    margin: 0;
+    padding: 0px 10px 1px 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-left: 3px solid var(--post-reply-thread-colour);
+}
+
+/* npf */
+.npf_row {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.npf-link-block {
+    border: 1px solid var(--post-accent-colour);
+}
+
+/* ================================ */
+/* link post */
+
+._construct-link-thumbnail {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+._construct-thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+._construct-thumbnail::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    width: 100%;
+    height: 100%;
+}
+
+._construct-link-title-excerpt {
+    position: absolute;
+    bottom: 0;
+}
+
+/* end link post */
+/* ================================ */
+
+/* ================================ */
+/* ask post */
+
+._construct-post-ask-container {
+    display: flex;
+}
+
+._construct-post-ask-avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 2px;
+    position: relative;
+}
+
+._construct-post-ask-text p {
+    padding: 0;
+    margin: 0;
+}
+
+._construct-post-ask-text-content {
+    padding: 10px;
+    display: block;
+}
+
+._construct-post-ask-text {
+    background-color: var(--post-ask-background-colour);
+    border-radius: 2px;
+    margin: 10px;
+    position: relative;
+    width: 100%;
+}
+
+._construct-post-ask-question {
+    margin-left: 6px;
+}
+
+._construct-post-ask-answer {
+    margin-right: 6px;
+}
+
+._construct-post-ask-question::before {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    border-right: 8px solid var(--post-ask-background-colour);
+    left: -16px;
+    margin-left: 0;
+    top: 7px;
+}
+
+._construct-post-ask-answer::before {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    border-left: 8px solid var(--post-ask-background-colour);
+    right: -16px;
+    margin-right: 0;
+    top: 7px;
+}
+
+/* end ask post */
+/* ================================ */
+
+/* end post body */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post tags */
+
+._construct-post-tag {
+    color: var(--post-tags-colour);
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 13px;
+    transition: .2s;
+}
+
+._construct-post-tag:is(:hover, :active, :focus) {
+    color: var(--post-tags-hover-colour);
+}
+
+/* end post tags */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post caption */
+
+._construct-post-caption p {
+    padding: 10px;
+    margin: 0;
+}
+
+/* end post caption */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* post footer */
+
+._construct-post-footer {
+    height: 40px;
+    width: 100%;
+    display: flow-root;
+    line-height: 40px;
+}
+
+._construct-post-footer-border {
+    border-top: 1px solid var(--post-accent-colour);
+}
+
+._construct-post-controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+._construct-post-controls li {
+    display: inline-block;
+    padding: 0 5px;
+    position: relative;
+}
+
+._construct-post-controls._construct-right li:last-of-type,
+._construct-post-controls._construct-left li:first-of-type {
+    padding: 0;
+}
+
+._construct-post-controls ._construct-tumblr-control {
+    top: 6px;
+}
+
+/* =============================== */
+/* footer layout one */
+
+._construct-footer-layout-one ._construct-post-notes-section {
+    float: left;
+    padding-left: 10px;
+}
+._construct-footer-layout-one ._construct-post-tumblr-controls-section {
+    float: right;
+    padding-right: 10px;
+}
+
+/* end footer layout one */
+/* =============================== */
+
+/* =============================== */
+/* footer layout two */
+
+._construct-footer-layout-two ._construct-post-notes-section {
+    float: right;
+    padding-right: 10px;
+}
+._construct-footer-layout-two ._construct-post-tumblr-controls-section {
+    float: left;
+    padding-left: 10px;
+}
+
+/* end footer layout two */
+/* =============================== */
+
+/* =============================== */
+/* footer layout three */
+
+._construct-footer-layout-three {
+    display: flex;
+    justify-content: flex-start;
+}
+
+._construct-footer-layout-three ._construct-post-notes-section {
+    padding-left: 10px;
+}
+
+/* end footer layout three */
+/* =============================== */
+
+/* =============================== */
+/* footer layout four */
+
+._construct-footer-layout-four {
+    display: flex;
+    justify-content: flex-end;
+}
+
+._construct-footer-layout-four ._construct-post-tumblr-controls-section {
+    padding-right: 10px;
+}
+
+/* end footer layout four */
+/* =============================== */
+
+/* =============================== */
+/* footer layout five */
+
+._construct-footer-layout-five {
+    display: flex;
+    justify-content: flex-end;
+}
+
+._construct-footer-layout-five ._construct-post-tumblr-controls-section {
+    order: 1;
+}
+
+._construct-footer-layout-five ._construct-post-notes-section {
+    order: 2;
+    padding-right: 10px;
+}
+
+/* end footer layout five */
+/* =============================== */
+
+/* =============================== */
+/* footer layout six */
+
+._construct-footer-layout-six {
+    display: flex;
+    justify-content: flex-start;
+}
+
+._construct-footer-layout-six ._construct-post-tumblr-controls-section {
+    order: 1;
+    padding-left: 10px;
+}
+
+._construct-footer-layout-six ._construct-post-notes-section {
+    order: 2;
+}
+
+/* end footer layout six */
+/* =============================== */
+
+/* =============================== */
+/* note counter */
+
+._construct-note-count {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* end note counter */
+/* =============================== */
+
+/* =============================== */
+/* reblog button */
+
+.reblog_button svg {
+    fill: var(--post-reblog-colour);
+}
+
+/* end reblog button */
+/* =============================== */
+
+/* =============================== */
+/* like button */
+
+.like_button {
+    opacity: 0;
+}
+
+._construct-like-facade {
+    fill: var(--post-like-colour);
+    z-index: 2;
+}
+
+/* like button liked */
+.like_button.liked ~ ._construct-like-facade {
+    fill: var(--post-liked-colour);
+}
+
+/* animation like */
+.like_button.liked ~ ._construct-like-facade-animation {
+    fill: var(--post-liked-colour);
+    z-index: 1;
+}
+
+._construct-like-facade-animation,
+._construct-like-facade {
+    height: 20px;
+    /* left: 10px; */
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    pointer-events: none;
+}
+
+._construct-like-facade-animation {
+    opacity: 0;
+}
+
+/* animation fly up */
+.like_button.liked ~ ._construct-like-fly-up {
+    animation: .7s linear like-fly-up;
+}
+
+@keyframes like-fly-up {
+    0% {}
+    20% {
+        top: -10px;
+        opacity: .8;
+    }
+    40% {
+        top: -20px;
+        opacity: .6;
+    }
+    60% {
+        top: -30px;
+        opacity: .4;
+    }
+    80% {
+        top: -40px;
+        opacity: .2;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+/* animation float up */
+.like_button.liked ~ ._construct-like-float-up {
+    animation: 1.5s linear like-float-up;
+}
+
+@keyframes like-float-up {
+    0% {}
+    20% {
+        top: -10px;
+        transform: rotateZ(20deg);
+        opacity: .8;
+    }
+    40% {
+        top: -20px;
+        transform: rotateZ(-20deg);
+        opacity: .6;
+    }
+    60% {
+        top: -30px;
+        transform: rotateZ(20deg);
+        opacity: .4;
+    }
+    80% {
+        top: -40px;
+        transform: rotateZ(-20deg);
+        opacity: .2;
+    }
+    100% {
+        top: -50px;
+        transform: rotateZ(20deg);
+        opacity: 0;
+    }
+}
+
+/* end like button */
+/* =============================== */
+
+/* end post footer */
+/* ////////////////////////////////////// */
+
+/* ////////////////////////////////////// */
+/* ask / submit pages */
+
+._construct-ask-submit-page {
+    background-color: transparent;
+}
+
+._construct-ask-submit-page ._construct-post-item-header,
+._construct-ask-submit-page ._construct-post-footer,
+._construct-ask-submit-page ._construct-post-caption {
+    display: none;
+}
+
+/* end ask / submit pages */
+/* ////////////////////////////////////// */
