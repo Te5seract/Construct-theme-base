@@ -1,5 +1,7 @@
 const construct = (function () {
-    function methods (ops) {
+    var proto = Construct.prototype;
+
+    function Construct (ops) {
         if (ops) {
             var masonry;
 
@@ -87,7 +89,35 @@ const construct = (function () {
     // end masonry
     //////////////////////////////////////
 
+    /**
+     * checks if the document has a particular element
+     * 
+     * @param {string} selectors 
+     * the selectors to check the document for, multiple 
+     * selectors can be used as long as they are separated by
+     * commas
+     * 
+     * @param {callback} callback 
+     * callback will execute if the element is found
+     * 
+     * @return {boolean}
+     */
+    proto.has = function (selectors, callback) {
+        var selItems = selectors.split(/ ,|, |,/gm),
+            result = false;
+
+        for (let i = 0; i < selItems.length; i++) {
+            if (document.querySelector(selItems)) {
+                result = true
+                callback ? callback() : null;
+                break;
+            }
+        }
+
+        return result;
+    }
+
     return (ops) => {
-        methods(ops);
+        Construct(ops);
     }
 })();
