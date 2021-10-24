@@ -118,6 +118,6 @@ const construct = (function () {
     }
 
     return (ops) => {
-        Construct(ops);
+        return new Construct(ops);
     }
 })();
